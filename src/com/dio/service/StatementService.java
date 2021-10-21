@@ -6,8 +6,15 @@ import com.dio.repository.StatementRepository;
 
 import java.util.List;
 
-public class StatementService {
-    private final StatementRepository statementRepository;
+public interface StatementService {
+
+    List<Statement> findAllByUser(final User user);
+
+    default User findUser(final Statement statement){
+        return statement.getUser();
+    }
+
+    /*private final StatementRepository statementRepository;
 
     public StatementService(final User userA, final User userB) {
         this.statementRepository = new StatementRepository(userA, userB);
@@ -15,5 +22,5 @@ public class StatementService {
 
     public List<Statement> findAllByUser(final User user) {
         return statementRepository.findAllByUser(user);
-    }
+    }*/
 }

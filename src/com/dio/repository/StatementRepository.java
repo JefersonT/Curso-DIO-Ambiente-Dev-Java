@@ -26,6 +26,7 @@ public class StatementRepository {
 
     }
 
+    //exemplos de utilização de stream
     public List<Statement> findAllByUser(final  User user) {
         return statements.stream()
                 .filter(statement -> statement.getUser().getCod().equals(user.getCod()))
